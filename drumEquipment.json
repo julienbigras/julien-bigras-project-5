@@ -1,0 +1,163 @@
+{
+    "drumEquipment": {
+        "drums": [
+            {
+                "title": "bass drum",
+                "key": "d01"
+            },
+            {
+                "title": "snare drum",
+                "key": "d02"
+            },
+            {
+                "title": "side snare drum",
+                "key": "d03"
+            },
+            {
+                "title": "mounted tom",
+                "key": "d04"
+            },
+            {
+                "title": "mounted tom 2",
+                "key": "d05"
+            },
+            {
+                "title": "mounted tom 3",
+                "key": "d06"
+            },
+            {
+                "title": "floor tom",
+                "key": "d07"
+            },
+            {
+                "title": "floor tom 2",
+                "key": "d08"
+            }
+        ],
+        "cymbals": [
+            {
+                "title": "hi hats",
+                "key": "c01"
+            },
+            {
+                "title": "small crash cymbal",
+                "key": "c02"
+            },
+            {
+                "title": "medium crash cymbal",
+                "key": "c03"
+            },
+            {
+                "title": "large crash cymbal",
+                "key": "c04"
+            },
+            {
+                "title": "ride cymbal",
+                "key": "c05"
+            },
+            {
+                "title": "china cymbal",
+                "key": "c06"
+            },
+            {
+                "title": "stack",
+                "key": "c07"
+            },
+            {
+                "title": "splash cymbal",
+                "key": "c08"
+            }
+        ],
+        "hardware": [
+            {
+                "title": "hi hat stand",
+                "key": "h01"
+            },
+            {
+                "title": "snare drum stand",
+                "key": "h02"
+            },
+            {
+                "title": "cymbal stand",
+                "key": "h03"
+            },
+            {
+                "title": "throne",
+                "key": "h04"
+            },
+            {
+                "title": "tom mount",
+                "key": "h05"
+            },
+            {
+                "title": "clamp-on cymbal arm",
+                "key": "h06"
+            },
+            {
+                "title": "bass drum pedal",
+                "key": "h07"
+            },
+            {
+                "title": "double bass drum pedal",
+                "key": "h08"
+            }
+        ],
+        "accessories": [
+            {
+                "title": "drumsticks",
+                "key": "a01"
+            },
+            {
+                "title": "sample pad",
+                "key": "a02"
+            },
+            {
+                "title": "cowbell",
+                "key": "a03"
+            },
+            {
+                "title": "tambourine",
+                "key": "a04"
+            },
+            {
+                "title": "shaker",
+                "key": "a05"
+            },
+            {
+                "title": "drum key",
+                "key": "a06"
+            },
+            {
+                "title": "moon gels",
+                "key": "a07"
+            },
+            {
+                "title": "headphones",
+                "key": "a08"
+            },
+            {
+                "title": "practice pad",
+                "key": "a09"
+            },
+            {
+                "title": "ipad",
+                "key": "a10"
+            },
+            {
+                "title": "music stand",
+                "key": "a11"
+            },
+            {
+                "title": "earplugs",
+                "key": "a12"
+            },
+            {
+                "title": "drum rug",
+                "key": "a13"
+            }
+        ]
+    },
+    "userLists": {
+        "test": true
+    }
+}
