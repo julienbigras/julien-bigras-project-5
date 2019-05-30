@@ -5,11 +5,7 @@ class UserList extends Component {
         return (
             <div className="userList">
                 
-                <input type="checkbox" id="test" />
-                <label htmlFor="test">test</label>
-
-                <input type="checkbox" id="test" />
-                <label htmlFor="test">test</label>
+                <button onClick={this.props.saveListToFirebase}>clear list</button>
 
             </div>
         )
