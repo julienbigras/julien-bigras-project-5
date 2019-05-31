@@ -82,18 +82,17 @@ class App extends Component {
     })
   }
 
+  // pushes the user's finished list to the Firebase database
   saveListToFirebase = () => {
-    console.log('hello');
     const dbRef = firebase.database().ref('/userLists');
     dbRef.push(this.state.userPackingList);
   }
 
+  // clears the list items
   clearList = () => {
-
-
-    // const packingList = [...this.state.userPackingList];
-    // packingList.splice(0, packingList.length);
-    console.log('clear');
+    this.setState({
+      userPackingList: []
+    })
   }
 
   render() {
