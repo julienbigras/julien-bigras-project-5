@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './firebase';
+import Header from './components/Header';
 import RadioButtons from './components/RadioButtons';
 // import DropdownMenu from './components/DropdownMenu';
 import UserList from './components/UserList';
@@ -88,36 +89,66 @@ class App extends Component {
   }
 
   clearList = () => {
+
+
+    // const packingList = [...this.state.userPackingList];
+    // packingList.splice(0, packingList.length);
     console.log('clear');
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Drummer's</h1>
 
-        <RadioButtons getChoiceValue={this.getChoiceValue} />
+        <Header />
+        <div className="wrapper">
+          <section className="flexContainer">
+            <section className="userOptionsSection">
 
-        {this.state.categoryChoiceArray.map((choice) => {
-          return (
-            <ul key= { choice.key }>
-              <li onClick={() => this.handleClick(choice.title)}>{choice.title}</li>
-            </ul>
-          )
-        })}
+              <RadioButtons getChoiceValue={this.getChoiceValue} />
 
-        {this.state.userPackingList.map((packingListItem, index) => {
-          return (
-            <div>
-              <input type="checkbox" id={packingListItem.key}/>
-              <label htmlFor={packingListItem.key}>{packingListItem}</label>
-              <button onClick={() => this.removeItemFromList(index)}>remove item</button>
-            </div>
-            )
-        })}
+              <ul>
+                {this.state.categoryChoiceArray.map((choice) => {
+                  return (
+                    <li key= {choice.key}>
+                      {choice.title}
+                      <button onClick={() => this.handleClick(choice.title)}>add</button>
+                    </li>
+                  )
+                })}
+              </ul>
 
-        {/* <DropdownMenu /> */}
-        <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
+              {/* <select name="" id="">
+                {this.state.categoryChoiceArray.map((choice) => {
+                  return (
+                      <option value={choice.title} onClick={() => this.handleClick(choice.title)}>{choice.title}</option>
+                  )
+                })}
+              </select> */}
+
+            </section>
+            <section className="userSelectionsList">
+
+              <h3>Your Packing List:</h3>
+
+              {this.state.userPackingList.map((packingListItem, index) => {
+                return (
+                  <div className="userSelectionItem">
+                    <label>
+                      <input type="checkbox" id={packingListItem.key}/>
+                      {packingListItem}
+                    </label>
+                    <button onClick={() => this.removeItemFromList(index)}>remove item</button>
+                  </div>
+                  )
+              })}
+
+              {/* <DropdownMenu /> */}
+              <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
+
+            </section>
+          </section>
+        </div>
       </div>
     );
   }
@@ -126,4 +157,4 @@ class App extends Component {
 export default App;
 
 
-// try to get the radio button selection to populate a dropdown menu
+// TEST
