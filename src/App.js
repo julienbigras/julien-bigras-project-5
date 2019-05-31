@@ -42,9 +42,6 @@ class App extends Component {
         accessoriesArray: accessories
       })
     });
-
-    const dbRefSendInfo = firebase.database().ref('/userLists');
-
   }
 
   getChoiceValue = (event) => {
@@ -74,21 +71,30 @@ class App extends Component {
     })
   }
 
-  removeItemFromList = (drumEquipmentKey) => {
-    //here we create a reference to the database at the book's id
-    // const dbRef = firebase.database().ref('/userLists');
+  removeItemFromList = (index) => {
+    console.log(index);
+    const packingList = this.state.userPackingList;
+    packingList.splice(index, 1);
 
-    dbRef.remove();
+    this.setState({
+      userPackingList: packingList
+    })
   }
 
   saveListToFirebase = () => {
+    console.log('hello');
+    const dbRef = firebase.database().ref('/userLists');
+    dbRef.push(this.state.userPackingList);
+  }
 
+  clearList = () => {
+    console.log('clear');
   }
 
   render() {
     return (
       <div className="App">
-        <h1>hello</h1>
+        <h1>Drummer's</h1>
 
         <RadioButtons getChoiceValue={this.getChoiceValue} />
 
@@ -100,21 +106,24 @@ class App extends Component {
           )
         })}
 
-        {this.state.userPackingList.map((packingListItem) => {
+        {this.state.userPackingList.map((packingListItem, index) => {
           return (
             <div>
               <input type="checkbox" id={packingListItem.key}/>
               <label htmlFor={packingListItem.key}>{packingListItem}</label>
-              <button onClick={() => this.removeItemFromList(choice.key)}>remove item</button>
+              <button onClick={() => this.removeItemFromList(index)}>remove item</button>
             </div>
             )
         })}
 
         {/* <DropdownMenu /> */}
-        <UserList />
+        <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
       </div>
     );
   }
 }
 
 export default App;
+
+
+// try to get the radio button selection to populate a dropdown menu
