@@ -50,6 +50,7 @@ li {
     width: 72%;
     margin: 0 auto;
     padding: 1% 0;
+    font-size: 0.9rem;
 }
 
 /* a {
@@ -63,13 +64,15 @@ button {
   border-radius: 5px;
   padding: 3px 25px;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  /* font-weight: bold; */
+  font-size: 0.8rem;
+  font-weight: bold;
   font-style: italic;
 }
 
-button:hover {
+button:hover,
+button:focus {
   background: lightblue;
+  color: black;
 }
 
 /* HEADER STYLES */
@@ -81,6 +84,7 @@ h2 {
 }
 
 h1 {
+  font-family: 'Paytone One';
   text-shadow: 3px 3px blue;
 }
 
@@ -92,6 +96,8 @@ h2 {
 h3 {
   text-align: center;
   margin-bottom: 2%;
+  padding-bottom: 1%;
+  border-top: 3px solid blue;
   border-bottom: 3px solid blue;
 }
 
@@ -100,18 +106,13 @@ h3 {
   margin: 0 auto;
 }
 
-
-
-  /* GENERAL LAYOUT STYLES */
+/* GENERAL LAYOUT STYLES */
 
 .flexContainer {
   display: flex;
 }
 
-.userOptionsSection {
-  width: 50%;
-}
-
+.userOptionsSection,
 .userSelectionsList {
   width: 50%;
 }
@@ -121,13 +122,15 @@ h3 {
 label {
   text-transform: uppercase;
   color: white;
-  margin-left: 5px;
+  margin-left: 10px;
+  /* font-size: 1rem; */
 }
 
 form {
   display: flex;
   justify-content: space-around;
   margin-bottom: 3%;
+  padding-bottom: 3%;
 }
 
 .radioFirstTwo,
@@ -136,19 +139,65 @@ form {
   flex-direction: column;
 }
 
+/* PACKING LIST STYLES */
+
 .userSelectionItem {
   display: flex;
   justify-content: space-between;
   padding: 1% 0;
+  width: 85%;
+  margin: 0 auto;
 }
 
-
+.userSelectionItem label {
+  font-size: 0.9rem;
+}
 
 .buttons {
   display: flex;
   justify-content: space-around;
+  padding: 4% 0;
+  margin-bottom: 3%;
 }
 
 input[type="checkbox"] {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+/* FOOTER STYLES */
+
+footer {
+  background: blue;
+  text-align: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;  
+  height: 22px;
+  margin-top: 1%;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 830px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .flexContainer {
+    flex-direction: column;
+  }
+
+  .userOptionsSection,
+  .userSelectionsList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+
 }

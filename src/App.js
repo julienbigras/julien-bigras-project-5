@@ -83,6 +83,8 @@ class App extends Component {
   saveListToFirebase = () => {
     const dbRef = firebase.database().ref('/userLists');
     dbRef.push(this.state.userPackingList);
+
+    alert('your list has been saved!');
   }
 
   // clears the list
@@ -114,10 +116,9 @@ class App extends Component {
                   )
                 })}
               </ul>
+            </section> {/* closes userOptionsSection */}
 
-            </section>
             <section className="userSelectionsList">
-
               <h3>Your Packing List:</h3>
 
               <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
@@ -129,20 +130,22 @@ class App extends Component {
                       <input type="checkbox" id={packingListItem.key}/>
                       {packingListItem}
                     </label>
-                    <button onClick={() => this.removeItemFromList(index)}>remove item</button>
+                    <button onClick={() => this.removeItemFromList(index)}>remove</button>
                   </div>
                   )
               })}
 
-            </section>
-          </section>
-        </div>
-      </div>
+            </section> {/* closes userSelectionsList section */}
+          </section> {/* closes flex container */}
+        </div> {/* closes wrapper */}
+      
+      <footer>
+        <p>Created by Julien Bigras</p>
+      </footer>
+
+      </div> //closes 'App' div
     );
   }
 }
 
 export default App;
-
-
-// TEST
