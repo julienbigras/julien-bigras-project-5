@@ -98,50 +98,53 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Header />
-        <div className="wrapper">
-          <section className="flexContainer">
-            <section className="userOptionsSection">
+        <div className="largeContainer">
+          <Header />
+          <div className="wrapper">
+            <section className="flexContainer">
+              <section className="userOptionsSection">
 
-              <h3>Choose a Category:</h3>
-              <RadioButtons getChoiceValue={this.getChoiceValue} />
+                <h3>Choose a Category:</h3>
+                <RadioButtons getChoiceValue={this.getChoiceValue} />
 
-              <ul>
-                {this.state.categoryChoiceArray.map((choice) => {
+                <ul>
+                  {this.state.categoryChoiceArray.map((choice) => {
+                    return (
+                      <li key= {choice.key}>
+                        {choice.title}
+                        <button onClick={() => this.handleClick(choice.title)}>add</button>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section> {/* closes userOptionsSection */}
+
+              <section className="userSelectionsList">
+                <h3>Your Packing List:</h3>
+
+                <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
+
+                {this.state.userPackingList.map((packingListItem, index) => {
                   return (
-                    <li key= {choice.key}>
-                      {choice.title}
-                      <button onClick={() => this.handleClick(choice.title)}>add</button>
-                    </li>
-                  )
+                    <div className="userSelectionItem">
+                      <label>
+                        <input type="checkbox" id={packingListItem.key}/>
+                        {packingListItem}
+                      </label>
+                      <button onClick={() => this.removeItemFromList(index)}>remove</button>
+                    </div>
+                    )
                 })}
-              </ul>
-            </section> {/* closes userOptionsSection */}
 
-            <section className="userSelectionsList">
-              <h3>Your Packing List:</h3>
+              </section> {/* closes userSelectionsList section */}
+            </section> {/* closes flex container */}
+          </div> {/* closes wrapper */}
+        
+        </div> {/* closes largeContainer */}
 
-              <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
-
-              {this.state.userPackingList.map((packingListItem, index) => {
-                return (
-                  <div className="userSelectionItem">
-                    <label>
-                      <input type="checkbox" id={packingListItem.key}/>
-                      {packingListItem}
-                    </label>
-                    <button onClick={() => this.removeItemFromList(index)}>remove</button>
-                  </div>
-                  )
-              })}
-
-            </section> {/* closes userSelectionsList section */}
-          </section> {/* closes flex container */}
-        </div> {/* closes wrapper */}
-      
-      <footer>
-        <p>Created by Julien Bigras</p>
-      </footer>
+        <footer>
+          <p>Created by Julien Bigras</p>
+        </footer>
 
       </div> //closes 'App' div
     );
