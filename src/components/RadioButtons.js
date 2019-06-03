@@ -6,17 +6,26 @@ class RadioButtons extends Component {
             <div>
                 <form action="">
 
-                <input onClick={this.props.getChoiceValue} type="radio" id="drums" name="drumGear" value="drumsArray"/>
-                <label htmlFor="drums">Drums</label>
-
-                <input onClick={this.props.getChoiceValue} type="radio" id="cymbals" name="drumGear" value="cymbalsArray" />
-                <label htmlFor="cymbals">Cymbals</label>
-
-                <input onClick={this.props.getChoiceValue} type="radio" id="hardware" name="drumGear" value="hardwareArray" />
-                <label htmlFor="hardware">Hardware</label>
-
-                <input onClick={this.props.getChoiceValue} type="radio" id="accessories" name="drumGear" value="accessoriesArray" />
-                <label htmlFor="accessories">Accessories</label>
+                <div className="radioFirstTwo">
+                    <div className="radioButton">
+                        <input onClick={this.props.getChoiceValue} type="radio" id="drums" name="drumGear" value="drumsArray"/>
+                        <label htmlFor="drums">Drums</label>
+                    </div>
+                    <div className="radioButton">
+                        <input onClick={this.props.getChoiceValue} type="radio" id="cymbals" name="drumGear" value="cymbalsArray" />
+                        <label htmlFor="cymbals">Cymbals</label>
+                    </div>
+                </div>
+                <div className="radioSecondTwo">
+                    <div className="radioButton">    
+                        <input onClick={this.props.getChoiceValue} type="radio" id="hardware" name="drumGear" value="hardwareArray" />
+                        <label htmlFor="hardware">Hardware</label>
+                    </div>
+                    <div className="radioButton">
+                        <input onClick={this.props.getChoiceValue} type="radio" id="accessories" name="drumGear" value="accessoriesArray" />
+                        <label htmlFor="accessories">Accessories</label>
+                    </div>
+                </div>
 
                 </form>
             </div>

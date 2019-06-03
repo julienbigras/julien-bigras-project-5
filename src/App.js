@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import firebase from './firebase';
 import Header from './components/Header';
 import RadioButtons from './components/RadioButtons';
-// import DropdownMenu from './components/DropdownMenu';
 import UserList from './components/UserList';
 import './App.css';
 
@@ -11,13 +10,11 @@ class App extends Component {
     super();
 
     this.state = {
-      // drumEquipment: [],
       drumsArray: [],
       cymbalsArray: [],
       hardwareArray: [],
       accessoriesArray: [],
       categoryChoiceArray: [],
-      // dropdownMenu: [],
       userPackingList: []
     }
   }
@@ -88,7 +85,7 @@ class App extends Component {
     dbRef.push(this.state.userPackingList);
   }
 
-  // clears the list items
+  // clears the list
   clearList = () => {
     this.setState({
       userPackingList: []
@@ -104,6 +101,7 @@ class App extends Component {
           <section className="flexContainer">
             <section className="userOptionsSection">
 
+              <h3>Choose a Category:</h3>
               <RadioButtons getChoiceValue={this.getChoiceValue} />
 
               <ul>
@@ -117,18 +115,12 @@ class App extends Component {
                 })}
               </ul>
 
-              {/* <select name="" id="">
-                {this.state.categoryChoiceArray.map((choice) => {
-                  return (
-                      <option value={choice.title} onClick={() => this.handleClick(choice.title)}>{choice.title}</option>
-                  )
-                })}
-              </select> */}
-
             </section>
             <section className="userSelectionsList">
 
               <h3>Your Packing List:</h3>
+
+              <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
 
               {this.state.userPackingList.map((packingListItem, index) => {
                 return (
@@ -141,9 +133,6 @@ class App extends Component {
                   </div>
                   )
               })}
-
-              {/* <DropdownMenu /> */}
-              <UserList saveListToFirebase={this.saveListToFirebase} clearList={this.clearList}/>
 
             </section>
           </section>

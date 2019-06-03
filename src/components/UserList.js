@@ -5,8 +5,10 @@ class UserList extends Component {
         return (
             <div className="userList">
                 
-                <button onClick={this.props.saveListToFirebase}>save list</button>
-                <button onClick={this.props.clearList}>clear list</button>
+                <div className="buttons">
+                    <button onClick={this.props.saveListToFirebase}>save list</button>
+                    <button onClick={this.props.clearList}>clear list</button>
+                </div>
 
             </div>
         )
