@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/julien-bigras-project-5/precache-manifest.b5b20adc4bd28abf01903864099ff656.js"
+  "/julien-bigras-project-5/precache-manifest.786238bda388ffc25346565206bbc074.js"
 );
 
 self.addEventListener('message', (event) => {
