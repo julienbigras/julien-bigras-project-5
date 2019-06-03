@@ -31,7 +31,6 @@ class App extends Component {
       const cymbals = dataSnapshot.child('cymbals').val();
       const hardware = dataSnapshot.child('hardware').val();
       const accessories = dataSnapshot.child('accessories').val();
-      console.log(dataSnapshot.val(), drums, cymbals, hardware, accessories);
 
       this.setState({
         drumsArray: drums,
@@ -85,13 +84,12 @@ class App extends Component {
   saveListToFirebase = () => {
     const dbRef = firebase.database().ref('/userLists');
     dbRef.push(this.state.userPackingList);
-
-    alert('your list has been saved!');
   }
 
   // clears the list
   clearList = () => {
     this.setState({
+      // sets the value of the userPackingList back to an empty array
       userPackingList: []
     })
   }
