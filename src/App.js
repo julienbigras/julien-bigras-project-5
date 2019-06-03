@@ -23,10 +23,10 @@ class App extends Component {
     // saving a reference to the gear node in dbRefGetInfo
     const dbRefGetInfo = firebase.database().ref('/drumEquipment');
     
-    // Basic usage of .once() to read the data located at ref.
-    // get everything that exists at the drumEquipment node of the Firebase database
+    // Basic usage of .once() to read the data located at in the Firebase database
+    // gets everything that exists at the drumEquipment node of the Firebase database
     dbRefGetInfo.once('value', (dataSnapshot) => {
-      // handle read data.
+      // handles the read data, and assigns it to variables
       const drums = dataSnapshot.child('drums').val();
       const cymbals = dataSnapshot.child('cymbals').val();
       const hardware = dataSnapshot.child('hardware').val();
@@ -45,7 +45,6 @@ class App extends Component {
   getChoiceValue = (event) => {
     const targetedValueOfRadioButton = event.target.value;
     const categoryChoiceArrayCopy = [...this.state[targetedValueOfRadioButton]];
-    console.log('it worked', event.target.value);
 
     // changes the state of categoryChoiceArray from an empty array to the value of categoryChoiceArrayCopy, which corresponds to the radio input chosen by the user
     this.setState({
@@ -69,12 +68,15 @@ class App extends Component {
     })
   }
 
+  // allows user to remove individual items from the list
   removeItemFromList = (index) => {
-    console.log(index);
+    //creates a copy of the userPackingList array, and saves it to a variable
     const packingList = this.state.userPackingList;
+    //splices a single item from the array, based on the index number passed in as an argument
     packingList.splice(index, 1);
 
     this.setState({
+      // sets the state of the userPackingList to equal the copy, which was spliced
       userPackingList: packingList
     })
   }
@@ -130,6 +132,7 @@ class App extends Component {
                       <label>
                         <input type="checkbox" id={packingListItem.key}/>
                         {packingListItem}
+                        <span className="checkmark"></span>
                       </label>
                       <button onClick={() => this.removeItemFromList(index)}>remove</button>
                     </div>
